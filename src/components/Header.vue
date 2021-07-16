@@ -11,7 +11,7 @@
                 <li><a href="#">La mia lista</a></li>
             </ul>
             <ul class="nav-list-rigth">
-                <li>Search</li>
+                <li><input type="text" placeholder="search" v-model="searchString"></li>
                 <li><a href="#">BAMBINI</a></li>
                 <li>Notifiche</li>
                 <li>Altro</li>
@@ -24,6 +24,11 @@
 
 export default {
   name: 'Header',
+  data() {
+   return{
+       searchString: "",
+   }   
+  },
   methods: {
 
   }

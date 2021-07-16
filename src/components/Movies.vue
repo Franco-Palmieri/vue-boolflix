@@ -1,14 +1,14 @@
 <template>
   <div class="movies-content">
-      <div class="picture">
-          <img :src="image" alt="" width="100%">
-      </div>
-      <div class="info-movies">
+      <div class="card-movie">
+          <div class="info-movies">
             <div>{{title}}</div>
             <div>{{originalTitle}}</div>
             <div>{{originalLanguage}}</div>
             <div>1</div>
       </div>
+      </div>
+      
   </div>
 </template>
 
@@ -32,9 +32,19 @@ export default {
 .movies-content{
     border: 1px solid red;
     width: calc(100% / 3);
-    .picture{
-        img{
-            width: 100%;
+    .card-movie{
+        display: flex;
+        height: 600px;
+        background-image: url("https://image.tmdb.org/t/p/w342/hQq8xZe5uLjFzSBt4LanNP7SQjl.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        align-items: center;
+        .info-movies{
+            background-color: black;
+            display: none;
+            &:hover{
+                display: block;
+            }
         }
     }
 }
