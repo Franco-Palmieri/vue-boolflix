@@ -37,8 +37,5 @@ export default {
             width: 100%;
         }
     }
-    .info-movies{
-        
-    }
 }
 </style>
