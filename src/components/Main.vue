@@ -1,12 +1,16 @@
 <template>
   <div class="main">
       <div class="container">
+        <div class="title-main">
+            <h1>ORIGINALI NETFLIX</h1>
+          </div>
         <div class="row">
           <Movies class="movies-container" v-for="movie in movies" :key="movie.id"
-          :title="album.title"
-          :original_title="movie.orginal_title"
-          :original_language="movie.original_language"
-          :vote_average="movie.vote_average"
+            :image="movie.poster_path"
+            :title="movie.title"
+            :originalTitle="movie.original_title"
+            :originalLanguage="movie.original_language"
+            :vote="movie.vote_average"
           />
         </div>
       </div>
