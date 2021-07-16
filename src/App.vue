@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <Main />
+    <Main :movies="movies"/>
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
   },
   created (){
     axios.get("https://api.themoviedb.org/3/search/movie?api_key=3cd005812fa42de2c7826b6521d70f3f&query=ritorno+al+futuro").then((result) =>{
-      this.movies = result.data.response;
+      this.movies = result.data.results;
     })
   },
   computed: {
