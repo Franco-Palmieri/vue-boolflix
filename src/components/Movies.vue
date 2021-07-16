@@ -2,11 +2,11 @@
   <div class="movies-content">
       <div class="card-movie">
           <div class="info-movies">
-            <div>{{title}}</div>
+            <div class="prova">{{title}}</div>
             <div>{{originalTitle}}</div>
             <div>{{originalLanguage}}</div>
             <div>1</div>
-      </div>
+          </div>
       </div>
       
   </div>

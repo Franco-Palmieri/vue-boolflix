@@ -43,6 +43,7 @@ export default {
         display: flex;
         justify-content: space-between;
         color: lightgrey;
+        align-items: center;
         .nav-list-left{
             display: flex;
             list-style: none;
