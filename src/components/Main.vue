@@ -2,11 +2,11 @@
   <div class="main">
       <div class="container">
         <div class="row">
-          <Movies class="movies-container" v-for="movie in albums" :key="movie.id"
+          <Movies class="movies-container" v-for="movie in movies" :key="movie.id"
           :title="album.title"
-          :original_title="album.orginal_title"
-          :original_language="album.original_language"
-          :vote_average="album.vote_average"
+          :original_title="movie.orginal_title"
+          :original_language="movie.original_language"
+          :vote_average="movie.vote_average"
           />
         </div>
       </div>
@@ -21,7 +21,7 @@ export default {
     Movies,
   },
   props: {
-    albums: Array,
+    movies: Array,
   },
   methods: {
   }
