@@ -30,8 +30,8 @@ export default {
 
 <style lang="scss">
 .movies-content{
-    border: 1px solid red;
     width: calc(100% / 3);
+    padding: 5px;
     .card-movie{
         display: flex;
         height: 600px;
@@ -40,10 +40,10 @@ export default {
         background-size: cover;
         align-items: center;
         .info-movies{
-            background-color: black;
-            display: none;
+            padding: 10px;
+            background-color: rgba(5, 4, 4, 0.7);
             &:hover{
-                display: block;
+                color: yellow;
             }
         }
     }
