@@ -2,10 +2,12 @@
   <div class="movies-content">
       <div class="card-movie">
           <div class="info-movies">
-            <div class="prova">{{title}}</div>
-            <div>{{originalTitle}}</div>
-            <div>{{originalLanguage}}</div>
-            <div>1</div>
+            <div class="content-info">
+                <div class="prova">{{title}}</div>
+                <div class="prova">{{originalTitle}}</div>
+                <div class="prova">{{originalLanguage}}</div>
+                <div class="prova">1</div>
+            </div>            
           </div>
       </div>
       
@@ -38,12 +40,20 @@ export default {
         background-image: url("https://image.tmdb.org/t/p/w342/hQq8xZe5uLjFzSBt4LanNP7SQjl.jpg");
         background-repeat: no-repeat;
         background-size: cover;
-        align-items: center;
+        align-items: flex-end;
+        justify-content: flex-end;
         .info-movies{
-            padding: 10px;
-            background-color: rgba(5, 4, 4, 0.7);
+            height: 100%;
+            width: 100%;
+            background-color: rgba(5, 4, 4, 0.5);
+            opacity: 0;
+            display: flex;
+            align-items: center;
             &:hover{
-                color: yellow;
+                opacity: 1;
+            }
+            .prova{
+                align-self: center;
             }
         }
     }

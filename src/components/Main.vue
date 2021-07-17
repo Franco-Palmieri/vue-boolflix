@@ -35,7 +35,7 @@ export default {
 <style lang="scss">
 .main{
   color: white;
-  background-color: rgb(0, 0, 0);
+  background-color: #1a1a1a;
   height: calc(100vh - 50px);
 }
 </style>

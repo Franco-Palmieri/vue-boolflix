@@ -2,7 +2,6 @@
   <div class="header">
       <div class="nav">
           <ul class="nav-list-left">
-                <li>Logo</li>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Serie TV</a></li>
                 <li><a href="#">Film</a></li>
@@ -11,7 +10,7 @@
                 <li><a href="#">La mia lista</a></li>
             </ul>
             <ul class="nav-list-rigth">
-                <li><input type="text" placeholder="search" v-model="searchString"></li>
+                <li><input type="text" placeholder="search" v-model="searchString" @keyup.enter="$emit('search', searchString)"></li>
                 <li><a href="#">BAMBINI</a></li>
                 <li>Notifiche</li>
                 <li>Altro</li>
@@ -39,7 +38,7 @@ export default {
 .header{
     .nav{
         height: 50px;
-        background-color: black;
+        background-color: #1a1a1a;
         display: flex;
         justify-content: space-between;
         color: lightgrey;
