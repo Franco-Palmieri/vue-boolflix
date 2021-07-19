@@ -5,7 +5,9 @@
             <div class="content-info">
                 <div class="prova">{{title}}</div>
                 <div class="prova">{{originalTitle}}</div>
-                <div class="prova flag-container" :class="getClassFlag"></div>
+                <div class="prova flag-container">
+                    <img :src="getFlag(originalLanguage)" alt="">
+                </div>
                 <div class="prova">{{vote}}</div>
             </div>            
           </div>
@@ -26,10 +28,8 @@ export default {
       vote: Number
   },
   methods: {
-      getClassFlag (){
-          if(originalLanguage === en){
-              return en-lang;
-          }
+      getFlag (originalLanguage){
+          return require("../assets/flags/" + originalLanguage + ".png");
       }
   }
 }
@@ -61,10 +61,8 @@ export default {
             }
             .flag-container{
                 width: 50px;
-                height: 50px;
-                border: 1px solid red;
-                .en-lang{
-                    background-image: url("../assets/flag-uk.png");
+                img{
+                    width: 100%;
                 }
             }
             .prova{
