@@ -19,25 +19,28 @@ export default {
   },
   data (){
     return {
-      movies: [],
+      popular: [],
       moviesFiltered: [],
     }
   },
   created (){
-    axios.get("https://api.themoviedb.org/3/search/movie?api_key=3cd005812fa42de2c7826b6521d70f3f&query=ritorno+al+futuro").then((results) =>{
-      this.movies = results.data.results;
-      this.moviesFiltered = results.data.results
+    axios.get("https://api.themoviedb.org/3/movie/popular?api_key=3cd005812fa42de2c7826b6521d70f3f").then((results) =>{
+      this.popular = results.data.results;
+      this.moviesFiltered = results.data.results;
     })
   },
   computed: {
   },
   methods: {
-    searchMovie (){
-      this.moviesFiltered = this.movies.filter((element) => {
-        return this.element.title.includes(searchString);
+    searchMovie (searchString){
+      if (searchString.length == 0){
+        this.moviesFiltered = this.popular
+        return ;
+      }
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=3cd005812fa42de2c7826b6521d70f3f&query=${searchString}`).then((results) =>{
+      this.moviesFiltered = results.data.results;
       })
     }
-
   }
 }
 </script>

@@ -5,8 +5,8 @@
             <div class="content-info">
                 <div class="prova">{{title}}</div>
                 <div class="prova">{{originalTitle}}</div>
-                <div class="prova">{{originalLanguage}}</div>
-                <div class="prova">1</div>
+                <div class="prova flag-container" :class="getClassFlag"></div>
+                <div class="prova">{{vote}}</div>
             </div>            
           </div>
       </div>
@@ -22,21 +22,26 @@ export default {
       title: String,
       originalTitle: String,
       originalLanguage: String,
-      image: String
+      image: String,
+      vote: Number
   },
   methods: {
-
+      getClassFlag (){
+          if(originalLanguage === en){
+              return en-lang;
+          }
+      }
   }
 }
 </script>
 
 <style lang="scss">
 .movies-content{
-    width: calc(100% / 3);
+    width: calc(100% / 6);
     padding: 5px;
     .card-movie{
         display: flex;
-        height: 600px;
+        height: 300px;
         background-image: url("https://image.tmdb.org/t/p/w342/hQq8xZe5uLjFzSBt4LanNP7SQjl.jpg");
         background-repeat: no-repeat;
         background-size: cover;
@@ -49,8 +54,18 @@ export default {
             opacity: 0;
             display: flex;
             align-items: center;
+            justify-content: flex-end;
+            padding: 15px;
             &:hover{
                 opacity: 1;
+            }
+            .flag-container{
+                width: 50px;
+                height: 50px;
+                border: 1px solid red;
+                .en-lang{
+                    background-image: url("../assets/flag-uk.png");
+                }
             }
             .prova{
                 align-self: center;

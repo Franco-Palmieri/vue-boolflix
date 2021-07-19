@@ -36,6 +36,5 @@ export default {
 .main{
   color: white;
   background-color: #1a1a1a;
-  height: calc(100vh - 50px);
 }
 </style>
