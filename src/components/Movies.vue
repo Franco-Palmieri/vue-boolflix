@@ -53,8 +53,7 @@ export default {
             background-color: rgba(5, 4, 4, 0.5);
             opacity: 0;
             display: flex;
-            align-items: center;
-            justify-content: flex-end;
+            text-align: center;
             padding: 15px;
             &:hover{
                 opacity: 1;

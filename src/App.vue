@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header @search="searchMovie"/>
-    <Main :movies="popular" :series="series" :popular="popular" @search="[searchMovie($event), searchSerie($event)]"/>
+    <Header @search="searchAll($event)"/>
+    <Main :movies="movies" :series="series" :popular="popular"/>
   </div>
 </template>
 
@@ -32,7 +32,7 @@ export default {
   methods: {
     callApi(){
       axios.get("https://api.themoviedb.org/3/movie/popular?api_key=3cd005812fa42de2c7826b6521d70f3f").then((results) =>{
-      this.popular = results.data.results;
+      this.movies = results.data.results;
       });
     },
     searchMulti (searchString){
@@ -46,13 +46,19 @@ export default {
     searchMovie (searchString){
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=3cd005812fa42de2c7826b6521d70f3f&query=${searchString}`).then((result)=>{
         this.movies = result.data.results;
+        console.log(searchString)
       })
     },
     searchSeries (searchString){
+      console.log("ciao")
       axios.get(`https://api.themoviedb.org/3/search/tv?api_key=3cd005812fa42de2c7826b6521d70f3f&query=${searchString}`).then((result)=> {
         this.series = result.data.results;
         console.log(this.series)
       })
+    },
+    searchAll (searchString){
+      this.searchMovie (searchString)
+      this.searchSeries(searchString)
     }
   }
 }
