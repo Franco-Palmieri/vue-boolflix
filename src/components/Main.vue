@@ -5,7 +5,8 @@
             <h1>ORIGINALI NETFLIX</h1>
           </div>
           <div v-if="movies.length === 0 && series.length === 0">
-            <div class="row movies-contenitore">            
+            <div class="row movies-contenitore"> 
+              <div class="title-section"><h2>Populars</h2></div>           
                 <Movies class="movies-container" v-for="movie in popular" :key="movie.id"
                 :image="movie.poster_path"
                 :title="movie.title"
