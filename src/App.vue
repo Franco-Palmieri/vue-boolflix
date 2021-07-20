@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @search="searchMovie"/>
-    <Main :movies="moviesFiltered" :series="series" :popular="popular" @search="[searchMovie($event), searchSerie($event)]"/>
+    <Main :movies="popular" :series="series" :popular="popular" @search="[searchMovie($event), searchSerie($event)]"/>
   </div>
 </template>
 
@@ -20,28 +20,32 @@ export default {
   data (){
     return {
       popular: [],
-      moviesFiltered: [],
+      movies: [],
       series : []
     }
   },
   created (){
-    axios.get("https://api.themoviedb.org/3/movie/popular?api_key=3cd005812fa42de2c7826b6521d70f3f").then((results) =>{
-      this.popular = results.data.results;
-      this.moviesFiltered = results.data.results;
-    });
+    this.callApi();
   },
   computed: {
   },
   methods: {
-
-    searchMovie (searchString){
+    callApi(){
+      axios.get("https://api.themoviedb.org/3/movie/popular?api_key=3cd005812fa42de2c7826b6521d70f3f").then((results) =>{
+      this.popular = results.data.results;
+      });
+    },
+    searchMulti (searchString){
       if (searchString.length == 0){
-        this.moviesFiltered = this.popular
-        return ;
+        return this.callApi()
       }
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=3cd005812fa42de2c7826b6521d70f3f&query=${searchString}`).then((results) =>{
-      this.moviesFiltered = results.data.results;
-      console.log(this.popular)
+      axios.get(`https://api.themoviedb.org/3/search/multi?api_key=3cd005812fa42de2c7826b6521d70f3f&query=${searchString}`).then((results) =>{
+      this.popular = results.data.results;
+      })
+    },
+    searchMovie (searchString){
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=3cd005812fa42de2c7826b6521d70f3f&query=${searchString}`).then((result)=>{
+        this.movies = result.data.results;
       })
     },
     searchSeries (searchString){

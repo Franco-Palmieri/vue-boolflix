@@ -58,6 +58,7 @@ export default {
             padding: 15px;
             &:hover{
                 opacity: 1;
+                font-size: 14px;
             }
             .flag-container{
                 width: 50px;
