@@ -60,7 +60,7 @@ export default {
 <style lang="scss">
 .main{
   color: white;
-  background-color: #1a1a1a;
+  background-color: black;
   .movies-contenitore{
     display: flex;
     justify-content: flex-start;

@@ -1,14 +1,18 @@
 <template>
   <div class="header">
       <div class="nav">
-          <ul class="nav-list-left">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Serie TV</a></li>
-                <li><a href="#">Film</a></li>
-                <li><a href="#">Originali</a></li>
-                <li><a href="#">Aggiunti di recente</a></li>
-                <li><a href="#">La mia lista</a></li>
-            </ul>
+          <div class="nav-list-left">
+              <div class="logo">
+              </div>
+            <ul class="">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Serie TV</a></li>
+                    <li><a href="#">Film</a></li>
+                    <li><a href="#">Originali</a></li>
+                    <li><a href="#">Aggiunti di recente</a></li>
+                    <li><a href="#">La mia lista</a></li>
+                </ul>
+            </div>
             <ul class="nav-list-rigth">
                 <li><input type="text" placeholder="search" v-model="searchString" @keyup.enter="$emit('search', searchString)"></li>
                 <li><a href="#">BAMBINI</a></li>
@@ -38,7 +42,7 @@ export default {
 .header{
     .nav{
         height: 50px;
-        background-color: #1a1a1a;
+        background-color: black;
         display: flex;
         justify-content: space-between;
         color: lightgrey;
@@ -46,7 +50,11 @@ export default {
         .nav-list-left{
             display: flex;
             list-style: none;
-            li{
+            align-items: center;
+            ul{
+                display: flex;
+                li{
+                list-style: none;
                 margin: 0 5px;
                 a{
                     color: lightgrey;
@@ -54,7 +62,17 @@ export default {
                     &:hover{
                         color: white;
                     }
-                }
+                    }
+                }            
+            }
+            .logo{
+                vertical-align: middle;
+                height: 50px;
+                width: 100px;
+                background-image: url("../assets/logo.png");
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
             }
         }
         .nav-list-rigth{

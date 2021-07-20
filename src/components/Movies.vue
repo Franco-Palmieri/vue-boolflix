@@ -4,12 +4,15 @@
           <img :src="completeImage(image)" alt="">
       </div>
       <div class="info-movie">
-        <div class="title">{{title}}</div>
-        <div class="title">{{originalTitle}}</div>
-        <div class="title flag-container">
+          <div class="info-content">
+                <div class="title">{{title}}</div>
+                <div class="title">{{originalTitle}}</div>
+                <div class="title flag-container">
                     <img :src="getFlag(originalLanguage)" alt="">
                 </div>
-        <div class="title">{{vote}}</div>
+                <div class="title">{{vote}}</div>
+          </div>
+        
       </div>
       
   </div>
@@ -42,6 +45,8 @@ export default {
     width: calc(100% / 6);
     padding: 5px;
     position: relative;
+    display: flex;
+    align-items: center;
     img{
         width: 100%;
     }
@@ -51,11 +56,10 @@ export default {
         background-color: rgba(5, 4, 4, 0.5);
         opacity: 0;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        vertical-align: middle;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         &:hover{
             opacity: 1;
         }
