@@ -4,7 +4,7 @@
         <div class="title-main">
             <h1>ORIGINALI NETFLIX</h1>
           </div>
-        <div class="row">
+        <div class="row movies-contenitore">
           <Movies class="movies-container" v-for="movie in movies" :key="movie.id"
             :image="movie.poster_path"
             :title="movie.title"
@@ -36,5 +36,9 @@ export default {
 .main{
   color: white;
   background-color: #1a1a1a;
+  .movies-contenitore{
+    display: flex;
+    justify-content: flex-start;
+  }
 }
 </style>

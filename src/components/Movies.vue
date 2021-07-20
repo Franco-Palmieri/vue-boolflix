@@ -30,7 +30,7 @@ export default {
   methods: {
       getFlag (originalLanguage){
           return require("../assets/flags/" + originalLanguage + ".png");
-      }
+      },
   }
 }
 </script>
