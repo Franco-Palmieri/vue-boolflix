@@ -32,7 +32,7 @@ export default {
   methods: {
     callApi(){
       axios.get("https://api.themoviedb.org/3/movie/popular?api_key=3cd005812fa42de2c7826b6521d70f3f").then((results) =>{
-      this.movies = results.data.results;
+      this.popular = results.data.results;
       });
     },
     searchMulti (searchString){
@@ -41,6 +41,7 @@ export default {
       }
       axios.get(`https://api.themoviedb.org/3/search/multi?api_key=3cd005812fa42de2c7826b6521d70f3f&query=${searchString}`).then((results) =>{
       this.popular = results.data.results;
+      console.log(this.popular)
       })
     },
     searchMovie (searchString){

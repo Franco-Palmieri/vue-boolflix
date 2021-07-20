@@ -54,6 +54,7 @@ export default {
             opacity: 0;
             display: flex;
             text-align: center;
+            align-items: center;
             padding: 15px;
             &:hover{
                 opacity: 1;

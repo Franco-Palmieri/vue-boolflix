@@ -4,15 +4,37 @@
         <div class="title-main">
             <h1>ORIGINALI NETFLIX</h1>
           </div>
-          <div class="row movies-contenitore">
-            <Movies class="movies-container" v-for="movie in movies" :key="movie.id"
-              :image="movie.poster_path"
-              :title="movie.title"
-              :originalTitle="movie.original_title"
-              :originalLanguage="movie.original_language"
-              :vote="movie.vote_average"
-            />
-          </div>        
+          <div v-if="movies.length === 0 && series.length === 0">
+            <div class="row movies-contenitore">            
+                <Movies class="movies-container" v-for="movie in popular" :key="movie.id"
+                :image="movie.poster_path"
+                :title="movie.title"
+                :originalTitle="movie.original_title"
+                :originalLanguage="movie.original_language"
+                :vote="movie.vote_average"
+              />
+            </div>              
+          </div>
+          <div v-else>
+            <div class="row movies-contenitore">   
+              <div class="title-section"><h2>Film</h2></div>         
+                <Movies class="movies-container" v-for="movie in movies" :key="movie.id"
+                :image="movie.poster_path"
+                :title="movie.title"
+                :originalTitle="movie.original_title"
+                :originalLanguage="movie.original_language"
+                :vote="movie.vote_average"
+                />
+                <div class="title-section"><h2>Series</h2></div> 
+                <Movies class="movies-container" v-for="movie in series" :key="movie.id"
+                :image="movie.poster_path"
+                :title="movie.title"
+                :originalTitle="movie.original_title"
+                :originalLanguage="movie.original_language"
+                :vote="movie.vote_average"
+                />
+            </div>   
+          </div>                    
       </div>
   </div>
 </template>
@@ -41,6 +63,9 @@ export default {
   .movies-contenitore{
     display: flex;
     justify-content: flex-start;
+    .title-section{
+      width: 100%;
+    }
   }
 }
 </style>
