@@ -5,8 +5,10 @@
       </div>
       <div class="info-movie">
         <div class="title">{{title}}</div>
-        <div class="original-title">{{originalTitle}}</div>
-        <div class="title">{{original_language}}</div>
+        <div class="title">{{originalTitle}}</div>
+        <div class="title flag-container">
+                    <img :src="getFlag(originalLanguage)" alt="">
+                </div>
         <div class="title">{{vote}}</div>
       </div>
       
@@ -43,11 +45,29 @@ export default {
     img{
         width: 100%;
     }
-    .info-movies{
+    .info-movie{
+        height: calc(100% - 10px);
+        width: calc(100% - 10px);
+        background-color: rgba(5, 4, 4, 0.5);
+        opacity: 0;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        vertical-align: middle;
+        text-align: center;
+        &:hover{
+            opacity: 1;
+        }
+        .flag-container{
+            img{
+                max-width: 50px;
+            }
+        }
+        .title{
+            width: 100%;
+            margin: 0;
+        }
     }
 }
 </style>
