@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @search="searchMovie"/>
-    <Main :movies="moviesFiltered" :series="series" @search="[searchMovie($event), searchSerie($event)]"/>
+    <Main :movies="moviesFiltered" :series="series" :popular="popular" @search="[searchMovie($event), searchSerie($event)]"/>
   </div>
 </template>
 
@@ -44,6 +44,10 @@ export default {
       })
     },
     searchSeries (searchString){
+      if (searchString.length == 0){
+        this.series = this.popular
+        return ;
+      }
       axios.get(`https://api.themoviedb.org/3/search/tv?api_key=3cd005812fa42de2c7826b6521d70f3f&query=${searchString}`).then((result)=> {
         this.series = result.data.results;
         console.log(result.data.results)

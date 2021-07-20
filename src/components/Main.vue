@@ -4,15 +4,15 @@
         <div class="title-main">
             <h1>ORIGINALI NETFLIX</h1>
           </div>
-        <div class="row movies-contenitore">
-          <Movies class="movies-container" v-for="movie in movies" :key="movie.id"
-            :image="movie.poster_path"
-            :title="movie.title"
-            :originalTitle="movie.original_title"
-            :originalLanguage="movie.original_language"
-            :vote="movie.vote_average"
-          />
-        </div>
+          <div class="row movies-contenitore">
+            <Movies class="movies-container" v-for="movie in movies" :key="movie.id"
+              :image="movie.poster_path"
+              :title="movie.title"
+              :originalTitle="movie.original_title"
+              :originalLanguage="movie.original_language"
+              :vote="movie.vote_average"
+            />
+          </div>        
       </div>
   </div>
 </template>
@@ -26,6 +26,8 @@ export default {
   },
   props: {
     movies: Array,
+    popular: Array,
+    series: Array
   },
   methods: {
   }
