@@ -29,8 +29,8 @@
                 <div class="title-section"><h2>Series</h2></div> 
                 <Movies class="movies-container" v-for="movie in series" :key="movie.id"
                 :image="movie.poster_path"
-                :title="movie.title"
-                :originalTitle="movie.original_title"
+                :title="movie.name"
+                :originalTitle="movie.original_name"
                 :originalLanguage="movie.original_language"
                 :vote="movie.vote_average"
                 />
